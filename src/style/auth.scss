@@ -91,8 +91,8 @@
         }
     }
 
-
     .create-room{
+        width: 100%;
         margin-top: 64px;
         height: 50px;
         border-radius: 8px;
@@ -117,7 +117,7 @@
         &:hover{
             filter: brightness(0.9);
         }
-    }
+    }   
 
     .separator{
         font-size: 14px;
