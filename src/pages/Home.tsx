@@ -23,7 +23,7 @@ export function Home(){
         if(!user){ //Se o usuario nao estiver autenticado
            await signInWithGoogle()
         }
-        navigate('/rooms') //se estiver ele entra nessa pagina
+        navigate('/rooms/') //se estiver ele entra nessa pagina
     }
 
     async function handleJoinRoom(event: FormEvent) {

@@ -1,3 +1,5 @@
+
+
 import { useEffect } from 'react';
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom'
@@ -9,8 +11,7 @@ import { RoomCode } from '../components/RoomCode';
 import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
 
-import '../styles/room.scss';
-
+import '../style/room.scss'
 
 type FirebaseQuestions = Record<string, {
   author: {
@@ -33,13 +34,9 @@ type Question = {
   isHighlighted: boolean;
 }
 
-type RoomParams = {
-  id: string;
-}
-
 export function Room() {
-  const params = useParams<RoomParams>()
-  const roomId = params
+  const params = useParams()
+  const roomId = params.id
   
   const { user } = useAuth();
   const [newQuestion, setNewQuestion] = useState('');
@@ -101,7 +98,7 @@ export function Room() {
       <header>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
-          <RoomCode code={roomId} />
+          <RoomCode code={roomId as unknown as string} />
         </div>
       </header>
 
