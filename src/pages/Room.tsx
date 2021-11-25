@@ -38,13 +38,15 @@ type RoomParams = {
 }
 
 export function Room() {
+  const params = useParams<RoomParams>()
+  const roomId = params
+  
   const { user } = useAuth();
-  const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const [questions, setQuestions] = useState<Question[]>([])
   const [title, setTitle] = useState('');
 
-  const roomId = params;
+
 
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
